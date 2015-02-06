@@ -3,8 +3,8 @@ package main
 import(
 	"github.com/go-martini/martini"
 	"github.com/martini-contrib/auth"
-	"SecretService/Models"
-	"SecretService/Controllers"
+	"github.com/cummingsi1993@gmail.com/SecretService/Models"
+	"github.com/cummingsi1993@gmail.com/SecretService/Controllers"
 ) 
 
 func main() {

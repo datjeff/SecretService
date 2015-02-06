@@ -1,7 +1,7 @@
 package Controllers
 
 import(
-	"SecretService/Interfaces"
+	"github.com/cummingsi1993@gmail.com/SecretService/Interfaces"
 	"github.com/go-martini/martini"
 )
 
