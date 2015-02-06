@@ -1,24 +1,30 @@
 package main
 
-import "github.com/go-martini/martini"
+import(
+	"github.com/go-martini/martini"
+	"github.com/martini-contrib/auth"
+	"SecretService/Models"
+	"SecretService/Controllers"
+) 
 
 func main() {
-  m := martini.Classic()
-  m.Get("/", func() string {
-    return "Hello world!"
-  })
+  	martiniClassic := martini.Classic()
+	
+	secretThingCollection := Models.NewSecretThingCollection()
+	
+	Controllers.RegisterRestfulService(secretThingCollection, martiniClassic)
 
+	martiniClassic.Use(auth.BasicFunc(Controllers.IsAuthorized))
 
-  m.Get("/woot", func() string {
-  		panic("you sucker")
-  		return "haha"
-  	})
-
-  m.Run()
-
-
-
-
+	martiniClassic.Run()
 }
+
+
+
+
+
+
+
+
 
 
