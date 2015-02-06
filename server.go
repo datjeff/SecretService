@@ -1,24 +1,24 @@
 package main
 
-import "github.com/go-martini/martini"
+import(
+	"github.com/go-martini/martini"
+	"SecretService/Models"
+	"SecretService/Controllers"
+) 
 
 func main() {
-  m := martini.Classic()
-  m.Get("/", func() string {
-    return "Hello world!"
-  })
-
-
-  m.Get("/woot", func() string {
-  		panic("you sucker")
-  		return "haha"
-  	})
-
-  m.Run()
-
-
-
-
+  martiniClassic := martini.Classic()
+        secretThingCollection := Models.NewSecretThingCollection()
+        Controllers.RegisterRestfulService(secretThingCollection, martiniClassic)
+        martiniClassic.Run()
 }
+
+
+
+
+
+
+
+
 
 
