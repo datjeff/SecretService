@@ -5,6 +5,8 @@ import(
 	"github.com/martini-contrib/auth"
 	"SecretService/Models"
 	"SecretService/Controllers"
+	"os"
+	"fmt"
 ) 
 
 func main() {
@@ -15,8 +17,8 @@ func main() {
 	Controllers.RegisterRestfulService(secretThingCollection, martiniClassic)
 
 	martiniClassic.Use(auth.BasicFunc(Controllers.IsAuthorized))
-
-	martiniClassic.Run()
+	fmt.Println(os.Getenv("PORT"))
+	martiniClassic.RunOnAddr(":"+ os.Getenv("PORT"))
 }
 
 
