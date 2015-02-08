@@ -12,11 +12,11 @@ import(
 func main() {
   	martiniClassic := martini.Classic()
 	
-	secretThingCollection := Models.NewSecretThingCollection()
+	secretThingCollection := models.NewSecretThingCollection()
 	
-	Controllers.RegisterRestfulService(secretThingCollection, martiniClassic)
+	controllers.RegisterRestfulService(secretThingCollection, martiniClassic)
 
-	martiniClassic.Use(auth.BasicFunc(Controllers.IsAuthorized))
+	martiniClassic.Use(auth.BasicFunc(controllers.IsAuthorized))
 	fmt.Println(os.Getenv("PORT"))
 	martiniClassic.RunOnAddr(":"+ os.Getenv("PORT"))
 }
