@@ -1,4 +1,4 @@
-package Controllers
+package controllers
 import(
 	"github.com/martini-contrib/auth"
 )

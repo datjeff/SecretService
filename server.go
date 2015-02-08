@@ -3,8 +3,8 @@ package main
 import(
 	"github.com/go-martini/martini"
 	"github.com/martini-contrib/auth"
-	"SecretService/Models"
-	"SecretService/Controllers"
+	"SecretService/models"
+	"SecretService/controllers"
 	"os"
 	"fmt"
 ) 
