@@ -1,0 +1,20 @@
+{
+	"ImportPath": "SecretService",
+	"GoVersion": "go1.4.1",
+	"Deps": [
+		{
+			"ImportPath": "github.com/codegangsta/inject",
+			"Comment": "v1.0-rc1-10-g33e0aa1",
+			"Rev": "33e0aa1cb7c019ccc3fbe049a8262a6403d30504"
+		},
+		{
+			"ImportPath": "github.com/go-martini/martini",
+			"Comment": "v1.0-107-g627d985",
+			"Rev": "627d985ef9f202fbfc53531f1da96ef92ae3fb3e"
+		},
+		{
+			"ImportPath": "github.com/martini-contrib/auth",
+			"Rev": "7a01f43473093dde36011d17675c2cf8de5bc346"
+		}
+	]
+}
