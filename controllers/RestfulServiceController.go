@@ -5,7 +5,7 @@ import(
 	"github.com/go-martini/martini"
 )
 
-func RegisterRestfulService(restModel Interfaces.IRestful, classicMartini *martini.ClassicMartini){
+func RegisterRestfulService(restModel interfaces.IRestful, classicMartini *martini.ClassicMartini){
 	path := restModel.GetPath()
 
 	classicMartini.Get(path, restModel.RestfulGet)
