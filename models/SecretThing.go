@@ -1,6 +1,6 @@
 package Models
 
 type SecretThing struct {
-	Id int
-	Content string
+	Id string
+	Content []byte
 }
