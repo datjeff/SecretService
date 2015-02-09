@@ -14,6 +14,7 @@ func main() {
 	
 	secretThingCollection := models.NewSecretThingCollection()
 	
+	
 	controllers.RegisterRestfulService(secretThingCollection, martiniClassic)
 
 	martiniClassic.Use(auth.BasicFunc(controllers.IsAuthorized))
