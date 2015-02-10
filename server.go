@@ -1,7 +1,7 @@
 package main
 
 import(
-	"github.com/cummingsi1993@gmail.com/couchbase"
+	"github.com/cummingsi1993@gmail.com/go-data_access"
 	"github.com/cummingsi1993@gmail.com/SecretService/encryption"
 	//github.com/cummingsi1993@gmail.com/SecretService/Models"
 	//"github.com/cummingsi1993@gmail.com/SecretService/Controllers"
@@ -21,7 +21,7 @@ func main() {
 	url := "http://localhost:8091/"
 	_ = url
 	router := mux.NewRouter().StrictSlash(true)
-	router.HandleFunc("/SecretThing/{key}", SecretThingEndpoint)
+	router.HandleFunc("/SecretThing/{key}", ServeHTTP(SecretThingEndpoint))
 
 	log.Fatal(http.ListenAndServe(":3000", router))
 }
@@ -31,19 +31,20 @@ type SecretThing struct {
 	Value []byte
 }
 
-func SecretThingEndpoint(w http.ResponseWriter, r *http.Request) {
+func SecretThingEndpoint(w http.ResponseWriter, r *http.Request) (err error) {
 	fmt.Println("Secret thing endpoint was hit.")
 
 	switch r.Method { 
 	case "POST": 
-		PutOrPostSecretThing(w, r)
+		err := PutOrPostSecretThing(w, r)
 	case "PUT": 
-		PutOrPostSecretThing(w, r)
+		err := PutOrPostSecretThing(w, r)
 	case "DELETE" : 
-		DeleteSecretThing(w, r)
+		err := DeleteSecretThing(w, r)
 	case "GET" : 
-		GetSecretThing(w, r)
+		err := GetSecretThing(w, r)
 	}
+	return
 }
 
 func GetAuthenticationString(w http.ResponseWriter, r *http.Request) ([]byte, error) {
@@ -104,3 +105,10 @@ func DeleteSecretThing(w http.ResponseWriter, r *http.Request) (err error) {
 	return
 }
 
+type appHandler func(http.ResponseWriter, *http.Request) error
+
+func (fn appHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+    if err := fn(w, r); err != nil {
+        http.Error(w, err.Error(), 500)
+    }
+}
