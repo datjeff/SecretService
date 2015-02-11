@@ -1,7 +1,11 @@
 package controllers
 
 import(
+<<<<<<< HEAD
 	"github.com/datjeff/SecretService/interfaces"
+=======
+	"github.com/cummingsi1993@gmail.com/SecretService/Interfaces"
+>>>>>>> upstream/master
 	"github.com/go-martini/martini"
 )
 
