@@ -3,8 +3,8 @@ package main
 import(
 	"github.com/go-martini/martini"
 	"github.com/martini-contrib/auth"
-	"SecretService/models"
-	"SecretService/controllers"
+	"github.com/datjeff/SecretService/models"
+	"github.com/datjeff/SecretService/controllers"
 	"os"
 	"fmt"
 ) 
@@ -15,7 +15,7 @@ func main() {
 	secretThingCollection := models.NewSecretThingCollection()
 	
 
-
+	
 	controllers.RegisterRestfulService(secretThingCollection, martiniClassic)
 
 	martiniClassic.Use(auth.BasicFunc(controllers.IsAuthorized))

@@ -1,7 +1,7 @@
 package controllers
 
 import(
-	"SecretService/interfaces"
+	"github.com/datjeff/SecretService/interfaces"
 	"github.com/go-martini/martini"
 )
 
@@ -20,4 +20,3 @@ func RegisterRestfulService(restModel interfaces.IRestful, classicMartini *marti
 	classicMartini.Delete(path, restModel.RestfulDelete)
 	classicMartini.Delete(path+"/:id", restModel.RestfulDelete)
 }
-
