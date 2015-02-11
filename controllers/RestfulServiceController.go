@@ -21,6 +21,3 @@ func RegisterRestfulService(restModel interfaces.IRestful, classicMartini *marti
 	classicMartini.Delete(path+"/:id", restModel.RestfulDelete)
 }
 
-C:\Users\Jeff\.ssh\id_rsa.pub
-
-type "C:\Users\Jeff\.ssh\id_rsa.pub" | ssh root@104.236.196.171 "sudo sshcommand acl-add dokku JeffLaptop"
