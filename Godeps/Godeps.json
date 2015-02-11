@@ -8,6 +8,14 @@
 			"Rev": "33e0aa1cb7c019ccc3fbe049a8262a6403d30504"
 		},
 		{
+			"ImportPath": "github.com/datjeff/SecretService/controllers",
+			"Rev": "7a6bc8e71ed0a2ff4e9d40e183c089ca8eba9a60"
+		},
+		{
+			"ImportPath": "github.com/datjeff/SecretService/models",
+			"Rev": "7a6bc8e71ed0a2ff4e9d40e183c089ca8eba9a60"
+		},
+		{
 			"ImportPath": "github.com/go-martini/martini",
 			"Comment": "v1.0-107-g627d985",
 			"Rev": "627d985ef9f202fbfc53531f1da96ef92ae3fb3e"
