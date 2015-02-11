@@ -1,35 +1,34 @@
 {
-	"ImportPath": "SecretService",
+	"ImportPath": "github.com/datjeff/SecretService",
 	"GoVersion": "go1.4.1",
-	"Packages": [
-		"./..."
-	],
 	"Deps": [
 		{
-			"ImportPath": "github.com/codegangsta/inject",
-			"Comment": "v1.0-rc1-10-g33e0aa1",
-			"Rev": "33e0aa1cb7c019ccc3fbe049a8262a6403d30504"
+			"ImportPath": "github.com/couchbase/gomemcached",
+			"Rev": "ab2e4449c34a22e6511abd78c074b4a8c6cc8b33"
 		},
 		{
-			"ImportPath": "github.com/datjeff/SecretService/controllers",
-			"Rev": "7a6bc8e71ed0a2ff4e9d40e183c089ca8eba9a60"
+			"ImportPath": "github.com/couchbaselabs/go-couchbase",
+			"Rev": "f2098224309e961b9580eb62f26267e3695b2e15"
 		},
 		{
-			"ImportPath": "github.com/datjeff/SecretService/interfaces",
-			"Rev": "7a6bc8e71ed0a2ff4e9d40e183c089ca8eba9a60"
+			"ImportPath": "github.com/cummingsi1993/SecretService/Models",
+			"Rev": "203526473cc856f7db1941bc3d63e0843f6106d8"
 		},
 		{
-			"ImportPath": "github.com/datjeff/SecretService/models",
-			"Rev": "7a6bc8e71ed0a2ff4e9d40e183c089ca8eba9a60"
+			"ImportPath": "github.com/cummingsi1993/SecretService/encryption",
+			"Rev": "203526473cc856f7db1941bc3d63e0843f6106d8"
 		},
 		{
-			"ImportPath": "github.com/go-martini/martini",
-			"Comment": "v1.0-107-g627d985",
-			"Rev": "627d985ef9f202fbfc53531f1da96ef92ae3fb3e"
+			"ImportPath": "github.com/cummingsi1993/go-data_access",
+			"Rev": "972c4480be2ffdad96c54d66b9ee566ea679f6d4"
 		},
 		{
-			"ImportPath": "github.com/martini-contrib/auth",
-			"Rev": "7a01f43473093dde36011d17675c2cf8de5bc346"
+			"ImportPath": "github.com/gorilla/context",
+			"Rev": "215affda49addc4c8ef7e2534915df2c8c35c6cd"
+		},
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Rev": "e444e69cbd2e2e3e0749a2f3c717cec491552bbf"
 		}
 	]
 }

@@ -1,4 +1,4 @@
-package Interfaces
+package interfaces
 
 type IAccessable interface { 
 	Key() string 
