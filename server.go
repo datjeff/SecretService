@@ -1,28 +1,6 @@
 package main
 
 import(
-<<<<<<< HEAD
-	"github.com/go-martini/martini"
-	"github.com/martini-contrib/auth"
-	"github.com/datjeff/SecretService/models"
-	"github.com/datjeff/SecretService/controllers"
-	"os"
-	"fmt"
-) 
-
-func main() {
-  	martiniClassic := martini.Classic()
-	
-	secretThingCollection := models.NewSecretThingCollection()
-	
-
-	
-	controllers.RegisterRestfulService(secretThingCollection, martiniClassic)
-
-	martiniClassic.Use(auth.BasicFunc(controllers.IsAuthorized))
-	fmt.Println(os.Getenv("PORT"))
-	martiniClassic.RunOnAddr(":"+ os.Getenv("PORT"))
-=======
 	"github.com/cummingsi1993/go-data_access"
 	"github.com/cummingsi1993/SecretService/encryption"
 	"github.com/cummingsi1993/SecretService/Models"
@@ -36,18 +14,20 @@ func main() {
     "encoding/base64"
     "strings"
     "errors"
+    "os"
 ) 
-
+const dbPath = "http://localhost:8091/"
 func main() {
 	//Set up configuration
-	url := "http://localhost:8091/"
+	url := dbPath
 	_ = url
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/SecretThing/{key}", func(w http.ResponseWriter, r *http.Request) {
 		DecorateWithLog(SecretThingEndpoint)(w, r)
 	})
+	router.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
 
-	log.Fatal(http.ListenAndServe(":3000", router))
+	log.Fatal(http.ListenAndServe(os.Getenv("PORT"), router))
 }
 
 func SecretThingEndpoint(w http.ResponseWriter, r *http.Request) (error) {
@@ -92,7 +72,7 @@ func PutOrPostSecretThing(w http.ResponseWriter, r *http.Request) (err error) {
 	thing, err := GetSecretThingFromRequest(r)
 	if (err != nil) { return }
 
-	url := "http://localhost:8091/"
+	url := dbPath
 
 	authString, err := GetAuthenticationString(w, r)
 	if (err != nil) { return }
@@ -106,11 +86,10 @@ func PutOrPostSecretThing(w http.ResponseWriter, r *http.Request) (err error) {
 
 	err = couchbase.Set(thing.Key, thing)
 	return 
->>>>>>> upstream/master
 }
 
 func GetSecretThing(w http.ResponseWriter, r *http.Request) (err error) {
-	url := "http://localhost:8091/"
+	url := dbPath
 	thing := new(Models.SecretThing)
 	vars := mux.Vars(r)
 	key := vars["key"]
@@ -131,7 +110,7 @@ func GetSecretThing(w http.ResponseWriter, r *http.Request) (err error) {
 }
 
 func DeleteSecretThing(w http.ResponseWriter, r *http.Request) (err error) {
-	url := "http://localhost:8091/"
+	url := dbPath
 	vars := mux.Vars(r)
 	key := vars["key"]
 	couchbase := DataAccess.GetCouchbaseDAL(url, "default", "SecretThing")
